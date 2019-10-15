@@ -21,3 +21,5 @@ AutoHander=>   send:”OK\r\n”
 20190414 3.0.0
  Add uploader for Atmel32U4
 
+20191015 AOT 1.0.0
+ Update to GITHUB
