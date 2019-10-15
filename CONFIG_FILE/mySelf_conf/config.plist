@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>WinOwner</key>
+	<string>CallTerimnalGo</string>
+	<key>SerialPort</key>
+	<dict>
+		<key>COM</key>
+		<string>usbmodem1411</string>
+		<key>BaudRate</key>
+		<string>9600</string>
+	</dict>
+	<key>cfg</key>
+	<dict>
+		<key>pass</key>
+		<string>0</string>
+		<key>fail</key>
+		<string>0</string>
+		<key>SWname</key>
+		<string>CrownFlex AutoTester</string>
+		<key>SWversion</key>
+		<string>4.0.0</string>
+		<key>PassWord</key>
+		<string>luxshare</string>
+		<key>TimeOut</key>
+		<string>120</string>
+		<key>FixtureIP</key>
+		<string>169.254.1.32</string>
+		<key>preSN</key>
+		<string>DLC</string>
+	</dict>
+	<key>GRR</key>
+	<dict>
+		<key>password</key>
+		<string>tungsten</string>
+	</dict>
+	<key>launchApp</key>
+	<dict>
+		<key>AppName</key>
+		<string>/Users/caoweidong/Desktop/ExScript.app</string>
+		<key>LaunchDelay</key>
+		<string>10.0</string>
+		<key>StartDelay</key>
+		<string>10.0</string>
+	</dict>
+	<key>MouseKeyboard</key>
+	<dict>
+		<key>COM</key>
+		<string>/dev/tty.usbmodemHIDF1</string>
+		<key>BaudRate</key>
+		<string>9600</string>
+	</dict>
+</dict>
+</plist>

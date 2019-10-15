@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>GRR</key>
+	<dict>
+		<key>password</key>
+		<string>tungsten</string>
+	</dict>
+	<key>WinOwner</key>
+	<string>CallTerimnalGo</string>
+	<key>cfg</key>
+	<dict>
+		<key>PassWord</key>
+		<string>luxshare</string>
+		<key>SWname</key>
+		<string>Overlay Assistant</string>
+		<key>SWversion</key>
+		<string>1.0.0</string>
+		<key>TimeOut</key>
+		<string>100</string>
+		<key>fail</key>
+		<string>0</string>
+		<key>pass</key>
+		<string>0</string>
+		<key>preSN</key>
+		<string>DLC</string>
+	</dict>
+	<key>Devices</key>
+	<dict>
+		<key>Device1</key>
+		<dict>
+			<key>Description</key>
+			<string>MouseKeyboard serial port</string>
+			<key>Name</key>
+			<string>MK</string>
+			<key>Enable</key>
+			<true/>
+			<key>ID</key>
+			<string>1000</string>
+			<key>Type</key>
+			<string>SERIAL</string>
+			<key>Addr</key>
+			<string>usbmodemHIDFG1</string>
+			<key>BaudRate</key>
+			<string>9600</string>
+		</dict>
+		<key>Device2</key>
+		<dict>
+			<key>Description</key>
+			<string>Auto server port</string>
+			<key>Name</key>
+			<string>AUTO</string>
+			<key>Enable</key>
+			<true/>
+			<key>ID</key>
+			<string>2000</string>
+			<key>Type</key>
+			<string>SOCKET</string>
+			<key>Mode</key>
+			<string>server</string>
+			<key>IP</key>
+			<string>127.0.0.1</string>
+			<key>Port</key>
+			<string>55551</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

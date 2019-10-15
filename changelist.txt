@@ -1,0 +1,23 @@
+20190122 1.0.0
+For Hyperion test assistant
+
+
+SerialPort:115200,N,8,1
+
+START:
+
+AutoHander=> send:”SN:DLCXXXXXXX01\r\n”
+Software     =>  send:”OK\r\n”
+
+Finished:
+Software     =>   send:”Result:PASS\r\n”  or”Result:FAIL\r\n”
+AutoHander=>   send:”OK\r\n”
+
+20190219 2.0.0
+ 1.change function of checking status of sw testing
+ 2.with opencv 3.4.1 lib
+20190220 2.0.1
+ fix some bugs
+20190414 3.0.0
+ Add uploader for Atmel32U4
+

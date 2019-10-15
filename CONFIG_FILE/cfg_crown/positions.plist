@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>GRR_Item</key>
+	<dict>
+		<key>X</key>
+		<string>80.773438</string>
+		<key>Y</key>
+		<string>186.769531</string>
+	</dict>
+	<key>Input_PWD</key>
+	<dict>
+		<key>X</key>
+		<string>340.347656</string>
+		<key>Y</key>
+		<string>131.429688</string>
+	</dict>
+	<key>Input_SN</key>
+	<dict>
+		<key>X</key>
+		<string>329.476562</string>
+		<key>Y</key>
+		<string>132.339844</string>
+	</dict>
+	<key>OK_PWD</key>
+	<dict>
+		<key>X</key>
+		<string>447.539062</string>
+		<key>Y</key>
+		<string>172.691406</string>
+	</dict>
+	<key>OK_SN</key>
+	<dict>
+		<key>X</key>
+		<string>448.312500</string>
+		<key>Y</key>
+		<string>173.093750</string>
+	</dict>
+	<key>Offset</key>
+	<dict>
+		<key>X</key>
+		<string>0.000000</string>
+		<key>Y</key>
+		<string>23.000000</string>
+	</dict>
+	<key>SelectBtn</key>
+	<dict>
+		<key>X</key>
+		<string>70.882812</string>
+		<key>Y</key>
+		<string>122.109375</string>
+	</dict>
+	<key>StartBtn</key>
+	<dict>
+		<key>X</key>
+		<string>838.777344</string>
+		<key>Y</key>
+		<string>78.421875</string>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StartBtn</key>
+	<dict>
+		<key>X</key>
+		<string>534.828125</string>
+		<key>Y</key>
+		<string>68.421875</string>
+	</dict>
+	<key>Input_PWD</key>
+	<dict>
+		<key>X</key>
+		<string>166.542969</string>
+		<key>Y</key>
+		<string>78.871094</string>
+	</dict>
+	<key>OK_PWD</key>
+	<dict>
+		<key>X</key>
+		<string>491.175781</string>
+		<key>Y</key>
+		<string>65.605469</string>
+	</dict>
+	<key>Input_SN</key>
+	<dict>
+		<key>X</key>
+		<string>185.488281</string>
+		<key>Y</key>
+		<string>91.375000</string>
+	</dict>
+	<key>OK_SN</key>
+	<dict>
+		<key>X</key>
+		<string>580.730469</string>
+		<key>Y</key>
+		<string>67.203125</string>
+	</dict>
+	<key>Offset</key>
+	<dict>
+		<key>X</key>
+		<string>0</string>
+		<key>Y</key>
+		<string>23.0</string>
+	</dict>
+</dict>
+</plist>

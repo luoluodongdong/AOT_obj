@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ERROR_VALUE</key>
+	<string>87</string>
+	<key>FAIL_VALUE</key>
+	<string>87</string>
+	<key>IDLE_VALUE</key>
+	<string>255</string>
+	<key>PASS_VALUE</key>
+	<string>156</string>
+	<key>POINT_TIMES</key>
+	<string>2</string>
+	<key>TESTING_VALUE</key>
+	<string>56</string>
+</dict>
+</plist>

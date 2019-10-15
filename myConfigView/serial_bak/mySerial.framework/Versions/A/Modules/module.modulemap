@@ -1,0 +1,6 @@
+framework module mySerial {
+  umbrella header "mySerial.h"
+
+  export *
+  module * { export * }
+}
