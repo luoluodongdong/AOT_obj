@@ -23,3 +23,7 @@ AutoHander=>   send:”OK\r\n”
 
 20191015 AOT 1.0.0
  Update to GITHUB
+
+20191216 AOT 1.0.1
+ 1.Remove NIVISA module
+ 2.add showIP script

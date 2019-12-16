@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "mySerialPanel.h"
-#import "myVisaPanel.h"
+//#import "myVisaPanel.h"
 #import "mySocketPanel.h"
 
 @protocol ConfigViewDelegate<NSObject>
@@ -17,7 +17,7 @@
 
 @end
 
-@interface myConfigView : NSViewController<ConfigViewDelegate,SerialPanelDelegate,VisaPanelDelegate,SocketPanelDelegate>
+@interface myConfigView : NSViewController<ConfigViewDelegate,SerialPanelDelegate,SocketPanelDelegate>
 {
     IBOutlet NSButton *backBtn;
     IBOutlet NSPopUpButton *devicesPopBtn;
@@ -85,7 +85,7 @@
 @property (nonatomic,assign) int Port;
 @property (nonatomic,assign) BOOL isOpened;
 @property (nonatomic,strong) MySerialPanel *serial;
-@property (nonatomic,strong) MyVisaPanel *instrument;
+//@property (nonatomic,strong) MyVisaPanel *instrument;
 @property (nonatomic,strong) MySocketPanel *socket;
 //声明device类方法
 -(NSString *)sendCmd:(NSString *)thisCommand withTimeOut:(double)thisTimeOut;

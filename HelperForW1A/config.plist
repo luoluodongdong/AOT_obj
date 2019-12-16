@@ -11,12 +11,14 @@
 	<string>CallTerimnalGo</string>
 	<key>cfg</key>
 	<dict>
+		<key>Slots</key>
+		<integer>4</integer>
 		<key>PassWord</key>
 		<string>luxshare</string>
 		<key>SWname</key>
-		<string>Overlay Assistant</string>
+		<string>Auto Assistant</string>
 		<key>SWversion</key>
-		<string>1.0.0</string>
+		<string>1.0.1</string>
 		<key>TimeOut</key>
 		<string>100</string>
 		<key>fail</key>
@@ -62,7 +64,7 @@
 			<key>IP</key>
 			<string>127.0.0.1</string>
 			<key>Port</key>
-			<string>55551</string>
+			<string>5555</string>
 		</dict>
 	</dict>
 </dict>

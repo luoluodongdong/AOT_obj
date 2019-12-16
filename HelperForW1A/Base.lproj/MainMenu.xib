@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -98,7 +98,7 @@
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="870" y="77" width="400" height="684"/>
+            <rect key="contentRect" x="1040" y="167" width="400" height="684"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="400" height="684"/>
@@ -181,15 +181,15 @@
                                             </textFieldCell>
                                         </textField>
                                         <box fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l5b-6h-V0A">
-                                            <rect key="frame" x="8" y="130" width="384" height="327"/>
+                                            <rect key="frame" x="8" y="53" width="384" height="404"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="fbo-0u-GrF">
-                                                <rect key="frame" x="3" y="3" width="378" height="309"/>
+                                                <rect key="frame" x="3" y="3" width="378" height="386"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </view>
                                         </box>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TvR-SN-BO0">
-                                            <rect key="frame" x="230" y="83" width="167" height="38"/>
+                                            <rect key="frame" x="215" y="30" width="167" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="GRR MODE" id="NWQ-u6-5tc">
                                                 <font key="font" metaFont="system" size="31"/>
@@ -201,34 +201,43 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Home" identifier="" id="m0A-Vo-UM5" userLabel="Log">
-                                <view key="view" id="Xtf-Iq-yVT">
+                                <view key="view" ambiguous="YES" id="Xtf-Iq-yVT">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="546"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCH-wm-lZW">
-                                            <rect key="frame" x="0.0" y="5" width="400" height="528"/>
+                                        <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCH-wm-lZW">
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="538"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="tLq-Ld-5Lr">
-                                                <rect key="frame" x="0.0" y="0.0" width="385" height="528"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="538"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="IDP-bn-60J">
-                                                        <rect key="frame" x="0.0" y="0.0" width="385" height="528"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="538"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        <size key="minSize" width="385" height="528"/>
+                                                        <color key="textColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="windowFrameTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <size key="minSize" width="400" height="538"/>
                                                         <size key="maxSize" width="400" height="10000000"/>
+                                                        <attributedString key="textStorage">
+                                                            <fragment content="log">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                                                    <font key="NSFont" metaFont="user"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
                                                         <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     </textView>
                                                 </subviews>
                                             </clipView>
-                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="2fi-UM-2W4">
+                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="2fi-UM-2W4">
                                                 <rect key="frame" x="-100" y="-100" width="225" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="UM6-u3-N2S">
-                                                <rect key="frame" x="385" y="0.0" width="15" height="528"/>
+                                            <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="UM6-u3-N2S">
+                                                <rect key="frame" x="385" y="0.0" width="15" height="538"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                         </scrollView>
@@ -236,7 +245,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Set" id="g1W-2e-DM3">
-                                <view key="view" ambiguous="YES" id="t8z-t4-Jmd">
+                                <view key="view" id="t8z-t4-Jmd">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="546"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>

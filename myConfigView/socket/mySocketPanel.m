@@ -41,6 +41,8 @@
     NSLog(@"socket pannel did appear...");
     _IS_SHOW=YES;
     [modeBtn selectItemWithTitle:_mode];
+    [ipTF setStringValue:self.ip];
+    [portTF setStringValue:[NSString stringWithFormat:@"%d",self.port]];
     //[self refreshPorts];
     if (_isConnected) {
         startBtn.title=@"Stop";
@@ -398,6 +400,11 @@
 - (BOOL)saveConfigEvent:(NSDictionary *)info{
     return YES;
 }
+
+- (void)receivedData:(NSString *)data {
+    
+}
+
 
 - (BOOL)commitEditingAndReturnError:(NSError * _Nullable __autoreleasing * _Nullable)error {
     return YES;

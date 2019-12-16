@@ -22,7 +22,7 @@
     // Do view setup here.
 }
 -(void)initView{
-    [slotTF setStringValue:[NSString stringWithFormat:@"Slot-%d",_slot_id]];
+    [selectBtn setTitle:[NSString stringWithFormat:@"Slot-%d",_slot_id+1]];
     [resultTF setBackgroundColor:[NSColor whiteColor]];
     [resultTF setStringValue:@"IDLE"];
     [resultTF setNeedsDisplay:YES];
@@ -71,4 +71,51 @@
         [_capIV setNeedsDisplay:YES];
     }
 }
+
+#pragma mark ---Select Btn Action
+
+-(IBAction)selectBtnAction:(id)sender{
+    NSInteger isSelected = [selectBtn state];
+    if (1 == isSelected) {
+        [resultTF setBackgroundColor:[NSColor whiteColor]];
+        [resultTF setStringValue:@"IDLE"];
+        [_capIV setHidden:NO];
+    }else{
+        [_capIV setHidden:YES];
+        [resultTF setBackgroundColor:[NSColor lightGrayColor]];
+        [resultTF setStringValue:@""];
+    }
+    [self.delegate msgFromSlotView:[NSString stringWithFormat:@"SELECTED:%d:%ld",self.slot_id,isSelected]];
+}
+#pragma mark ---Msg From Frame
+-(void)sendMsg2SlotView:(NSString *)msg{
+    NSLog(@"[Slot-%d]:msg form frame:%@",self.slot_id+1,msg);
+    @synchronized (self) {
+        if ([msg hasPrefix:@"LOCK:"]) {
+            NSArray *msgArr=[msg componentsSeparatedByString:@":"];
+            [self performSelectorOnMainThread:@selector(changeLockState:) withObject:msgArr[1] waitUntilDone:NO];
+        }
+    }
+    
+}
+-(void)changeLockState:(NSString *)isLocked{
+    if ([isLocked isEqualToString:@"1"]) {
+        [selectBtn setEnabled:NO];
+    }else{
+        [selectBtn setEnabled:YES];
+    }
+    
+}
+- (void)msgFromSlotView:(nonnull NSString *)msg {
+    
+}
+
+- (BOOL)commitEditingAndReturnError:(NSError *__autoreleasing  _Nullable * _Nullable)error {
+    return YES;
+}
+
+- (void)encodeWithCoder:(nonnull NSCoder *)coder {
+    
+}
+
 @end

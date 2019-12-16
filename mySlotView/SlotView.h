@@ -10,10 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SlotView : NSViewController
+@protocol SlotViewDelegate <NSObject>
+
+-(void)msgFromSlotView:(NSString *)msg;
+
+@end
+
+@interface SlotView : NSViewController<SlotViewDelegate>
 {
-    IBOutlet NSTextField *slotTF;
     IBOutlet NSTextField *resultTF;
+    IBOutlet NSButton *selectBtn;
 }
 
 @property (nonatomic,strong) IBOutlet NSImageView *capIV;
@@ -23,10 +29,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSString *status;
 @property (nonatomic,strong) NSImage *capImage;
 @property (nonatomic,strong) NSDictionary *rootDict;
+@property (nonatomic,assign) BOOL selected;
+@property (nonatomic,weak) id<SlotViewDelegate> delegate;
 
 -(void)initView;
 -(void)updateStatus;
 -(void)printCapImage;
+
+-(void)sendMsg2SlotView:(NSString *)msg;
+
+-(IBAction)selectBtnAction:(id)sender;
+
 @end
 
 NS_ASSUME_NONNULL_END

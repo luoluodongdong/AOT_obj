@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -10,27 +10,18 @@
             <connections>
                 <outlet property="capIV" destination="oOb-9R-s4p" id="7vj-NS-3SD"/>
                 <outlet property="resultTF" destination="gIe-75-bb6" id="bV8-i2-Gls"/>
-                <outlet property="slotTF" destination="dgQ-Gx-HEO" id="RDf-pe-ckn"/>
+                <outlet property="selectBtn" destination="3V9-XU-ShF" id="91p-xT-Bde"/>
                 <outlet property="view" destination="c22-O7-iKe" id="dyX-Hu-rGA"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="197" height="136"/>
+            <rect key="frame" x="0.0" y="0.0" width="197" height="81"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgQ-Gx-HEO">
-                    <rect key="frame" x="11" y="112" width="40" height="17"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Slot-1" id="BgZ-kY-Z8W">
-                        <font key="font" usesAppearanceFont="YES"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gIe-75-bb6">
-                    <rect key="frame" x="11" y="62" width="174" height="47"/>
+                    <rect key="frame" x="11" y="9" width="119" height="47"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="PASS" drawsBackground="YES" id="Sof-dN-Tgx">
                         <font key="font" metaFont="system" size="32"/>
@@ -39,12 +30,23 @@
                     </textFieldCell>
                 </textField>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oOb-9R-s4p">
-                    <rect key="frame" x="11" y="7" width="48" height="48"/>
+                    <rect key="frame" x="138" y="9" width="48" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSInfo" id="hfM-34-Lzg"/>
                 </imageView>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3V9-XU-ShF">
+                    <rect key="frame" x="9" y="58" width="61" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="eSR-Ig-fd5">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="selectBtnAction:" target="-2" id="Yre-C3-QHx"/>
+                    </connections>
+                </button>
             </subviews>
-            <point key="canvasLocation" x="-2.5" y="86"/>
+            <point key="canvasLocation" x="-2.5" y="58.5"/>
         </customView>
     </objects>
     <resources>

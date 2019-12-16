@@ -20,14 +20,14 @@
             return response;
         }
     }
-    else if([_Type isEqualToString:@"INSTR"]){
-        NSString *response=[_instrument queryInstr:thisCommand];
-        if ([response isEqualToString:@""]) {
-            return @"TIMEOUT";
-        }else{
-            return response;
-        }
-    }
+//    else if([_Type isEqualToString:@"INSTR"]){
+//        NSString *response=[_instrument queryInstr:thisCommand];
+//        if ([response isEqualToString:@""]) {
+//            return @"TIMEOUT";
+//        }else{
+//            return response;
+//        }
+//    }
     else if([_Type isEqualToString:@"SOCKET"]){
         _socket.timeout=thisTimeOut;
         response=[_socket query:thisCommand];
@@ -43,9 +43,9 @@
     if ([_Type isEqualToString:@"SERIAL"] ) {
         return [_serial sendCommand:command];
     }
-    else if([_Type isEqualToString:@"INSTR"]){
-        return [_instrument sendCommand:command];
-    }
+//    else if([_Type isEqualToString:@"INSTR"]){
+//        return [_instrument sendCommand:command];
+//    }
     else if([_Type isEqualToString:@"SOCKET"]){
         return [_socket sendCommand:command];
     }
@@ -58,11 +58,11 @@
             [_serial.serialPort close];
         }
     }
-    else if([_Type isEqualToString:@"INSTR"]){
-        //visa panel
-        [_instrument closeInstrument];
-        
-    }
+//    else if([_Type isEqualToString:@"INSTR"]){
+//        //visa panel
+//        [_instrument closeInstrument];
+//
+//    }
     else if([_Type isEqualToString:@"SOCKET"]){
         //socket panel
         [_socket stopSocket];
@@ -164,7 +164,7 @@
             //_mySerialPanel.serialPort.usesDTRDSRFlowControl=TRUE;
             [mySerialPanel initView];
             BOOL result=[mySerialPanel autoOpenSerial:myDevice.Addr baud:myDevice.BaudRate];
-            NSLog(@"auto open serial result:%hhd",result);
+            NSLog(@"auto open serial:%@ baud:%d result:%hhd",myDevice.Addr,myDevice.BaudRate,result);
             if (!result) {
                 NSLog(@"Auto open serial fail!");
                 ALL_DEVICES_IS_READY = NO;
@@ -178,27 +178,27 @@
             myDevice.serial=mySerialPanel;
             [_devicesDic setObject:myDevice forKey:myDevice.Name];
         }
-        else if([myDevice.Type isEqualToString:@"INSTR"]){
-            myDevice.Addr=[dev objectForKey:@"Addr"];
-            myDevice.BaudRate=[[dev objectForKey:@"BaudRate"] intValue];
-            
-            MyVisaPanel *myVisaPanel=[[MyVisaPanel alloc] initWithNibName:@"myVisaPanel" bundle:nil];
-            myVisaPanel._description=myDevice.Desctription;
-            myVisaPanel._id=myDevice.ID;
-            myVisaPanel.delegate=self;
-            [myVisaPanel initView];
-            
-            BOOL result=[myVisaPanel autoOpenInstrument:myDevice.Addr timeout:2000];
-            if (!result) {
-                NSLog(@"Auto open instrument fail!");
-                ALL_DEVICES_IS_READY = NO;
-                [self alarmPanel:[NSString stringWithFormat:@"[%@]Auto Open %@ instrument error!",_dictKey,myDevice.description]];
-            }
-            myDevice.isOpened = result;
-            myDevice.instrument=myVisaPanel;
-            [_devicesDic setObject:myDevice forKey:myDevice.Name];
-            
-        }
+//        else if([myDevice.Type isEqualToString:@"INSTR"]){
+//            myDevice.Addr=[dev objectForKey:@"Addr"];
+//            myDevice.BaudRate=[[dev objectForKey:@"BaudRate"] intValue];
+//
+//            MyVisaPanel *myVisaPanel=[[MyVisaPanel alloc] initWithNibName:@"myVisaPanel" bundle:nil];
+//            myVisaPanel._description=myDevice.Desctription;
+//            myVisaPanel._id=myDevice.ID;
+//            myVisaPanel.delegate=self;
+//            [myVisaPanel initView];
+//
+//            BOOL result=[myVisaPanel autoOpenInstrument:myDevice.Addr timeout:2000];
+//            if (!result) {
+//                NSLog(@"Auto open instrument fail!");
+//                ALL_DEVICES_IS_READY = NO;
+//                [self alarmPanel:[NSString stringWithFormat:@"[%@]Auto Open %@ instrument error!",_dictKey,myDevice.description]];
+//            }
+//            myDevice.isOpened = result;
+//            myDevice.instrument=myVisaPanel;
+//            [_devicesDic setObject:myDevice forKey:myDevice.Name];
+//
+//        }
         else if([myDevice.Type isEqualToString:@"SOCKET"]){
             myDevice.IP=[dev objectForKey:@"IP"];
             myDevice.Port=[[dev objectForKey:@"Port"] intValue];
@@ -213,6 +213,7 @@
             mySocketPanel.timeout=2.0;
             [mySocketPanel initView];
             BOOL result=[mySocketPanel autoStartSocket:myDevice.IP port:myDevice.Port];
+            NSLog(@"auto open socket:%@ port:%d result:%hhd",myDevice.IP,myDevice.Port,result);
             if (!result) {
                 ALL_DEVICES_IS_READY = NO;
                 [self alarmPanel:[NSString stringWithFormat:@"[%@]Auto Open %@ port error!",_dictKey,myDevice.Desctription]];
@@ -262,9 +263,9 @@
     if ([dev_type isEqualToString:@"SERIAL"]) {
         [configVC presentViewControllerAsSheet:myDevice.serial];
     }
-    else if([dev_type isEqualToString:@"INSTR"]){
-        [configVC presentViewControllerAsSheet:myDevice.instrument];
-    }
+//    else if([dev_type isEqualToString:@"INSTR"]){
+//        [configVC presentViewControllerAsSheet:myDevice.instrument];
+//    }
     else if([dev_type hasSuffix:@"SOCKET"]){
         [configVC presentViewControllerAsSheet:myDevice.socket];
     }
@@ -575,7 +576,7 @@
         NSNumber *number = [NSNumber numberWithFloat:value];
         [_disSamplesArr addObject:number];
     }
-    NSLog(@"samples:%@",_disSamplesArr);
+    //NSLog(@"samples:%@",_disSamplesArr);
 }
 -(NSString *)inputString:(NSString *)str{
     if(![_MK_SerialPanel.serialPort isOpen]) return @"NG,not ready";

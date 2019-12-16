@@ -1,0 +1,25 @@
+main(){
+	#System.system(System.getenv("HOME") +"/Library/Atlas/Configs/ShowIP/ShowIP.sh")
+	output=System.command(System.getenv("HOME") +"/Library/Atlas/Configs/ShowIP/ScanIP.sh")
+	println(output)
+	if(output.code == 0){
+		ip_str=Strings.splice(output.out,"\n","")
+		ip_list=Strings.tokenize(ip_str," ")
+		println("raw_ip_list:"+represent(ip_list))
+		available_ip_list=[]
+		for ip in ip_list{
+			if(ip != ""){
+				available_ip_list = available_ip_list :: ip
+				println("ip:"+ip)
+			}
+		}
+		println("available_ip_list:"+represent(available_ip_list))
+		if(size(available_ip_list) == 0){
+			raise exception("get ip error!")
+		}
+	}else{
+		raise exception("get ip error!")
+	}
+	
+}
+

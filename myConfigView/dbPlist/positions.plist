@@ -37,6 +37,34 @@
 		<key>Y</key>
 		<string>512.539062</string>
 	</dict>
+	<key>MonitorP_4</key>
+	<dict>
+		<key>X</key>
+		<string>572.269531</string>
+		<key>Y</key>
+		<string>512.539062</string>
+	</dict>
+	<key>MonitorP_5</key>
+	<dict>
+		<key>X</key>
+		<string>572.269531</string>
+		<key>Y</key>
+		<string>512.539062</string>
+	</dict>
+	<key>MonitorP_6</key>
+	<dict>
+		<key>X</key>
+		<string>572.269531</string>
+		<key>Y</key>
+		<string>512.539062</string>
+	</dict>
+	<key>MonitorP_7</key>
+	<dict>
+		<key>X</key>
+		<string>572.269531</string>
+		<key>Y</key>
+		<string>512.539062</string>
+	</dict>
 	<key>Input_PWD</key>
 	<dict>
 		<key>X</key>

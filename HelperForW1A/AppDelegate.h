@@ -17,7 +17,7 @@
 #import "SlotView.h"
 #import "ConfigView.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate,ConfigViewDelegate,PassWordDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate,ConfigViewDelegate,PassWordDelegate,SlotViewDelegate>
 {
     //main NSWindow ViewVontroller
     IBOutlet NSViewController *_mainVC;

@@ -138,7 +138,9 @@ using namespace cv;
     int count=(int)[*slotsArr count];
     for (int i=0; i<count; i++) {
         SlotView *slot = [*slotsArr objectAtIndex:i];
-        
+        if (false == slot.selected) {
+            continue;
+        }
         NSPoint point=slot.monitorPoint;
         //edge protect
         int x=point.x + 100 > self.displayW ? t*self.displayW-100 : t*point.x;
@@ -157,12 +159,10 @@ using namespace cv;
         //NSString *nsPath=[NSString stringWithFormat:@"/vault/AOT_saveImages/Slot-%d%@.bmp",slot.slot_id,timeFix];
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             //[self saveImage:slot.capImage path:nsPath];
-            
             [self drawImage:imageROI :slot.capIV];
             //[Values addObject:[NSString stringWithFormat:@"%d",value]];
             
         });
-        
         imageROI.release();
         [NSThread sleepForTimeInterval:0.05];
         //*slotsArr[i] = slot;

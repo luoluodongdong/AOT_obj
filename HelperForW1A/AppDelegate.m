@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+//桃色
+#define NSDebug6Color [NSColor colorWithRed:255.0/255.0 green:218.0/255.0 blue:185.0/255.0 alpha:1.0]
+
+#define NSNormalColor [NSColor windowBackgroundColor]
 
 //typedef NS_ENUM(NSInteger, ORSSerialRequestType) {
 //    ORSSerialRequestTypeMatchStr = 1,
@@ -111,6 +115,18 @@
     [self updateYield:@"NO"];
     //check fixture IP and launch software application
     //[NSThread detachNewThreadSelector:@selector(checkIPAndLaunchSW) toTarget:self withObject:nil];
+    NSString *rawfilePath=[[NSBundle mainBundle] resourcePath];
+    NSString *showIpSh=[rawfilePath stringByAppendingString:@"/ShowIP/ShowIP.sh"];
+    const char *showIpCmd=[showIpSh UTF8String];
+    system(showIpCmd);
+    
+//    NSString *ipTemp=[self scanIPs];
+//    //ipTemp = [ipTemp stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    NSArray *ipArr=[ipTemp componentsSeparatedByString:@"\n"];
+//    NSLog(@"==>>ipArr:%@",ipArr);
+//    ["192.168.43.115",
+//    "10.36.101.133",
+//    ""]
     
     _snString=@"DLC8515002GKQV6AS";
     [_grrLabel setHidden:YES];
@@ -149,44 +165,69 @@
     
     _resultsArr=[[NSMutableArray alloc] initWithCapacity:_SLOT_COUNT];
 
-    NSString *rawfilePath=[[NSBundle mainBundle] resourcePath];
+    //NSString *rawfilePath=[[NSBundle mainBundle] resourcePath];
     NSString *filePath=[rawfilePath stringByAppendingPathComponent:@"color_config.plist"];
     NSMutableDictionary *rootSet=[[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
     _point_times=[[rootSet objectForKey:@"POINT_TIMES"] intValue];
     
-//    _VALUE_FAIL=[[rootSet objectForKey:@"FAIL_VALUE"] intValue];
-//    _VALUE_PASS=[[rootSet objectForKey:@"PASS_VALUE"] intValue];
-//    _VALUE_ERROR=[[rootSet objectForKey:@"ERROR_VALUE"] intValue];
-//    _VALUE_IDLE=[[rootSet objectForKey:@"IDLE_VALUE"] intValue];
-//    _VALUE_TESTING=[[rootSet objectForKey:@"TESTING_VALUE"] intValue];
     _slotsArr=[[NSMutableArray alloc] initWithCapacity:1];
     int x=5;
-    int y=300;
+    int y=350;
+    int slotCount = 0;
     for(int i=0;i<_SLOT_COUNT;i++){
+        slotCount += 1;
         SlotView *item=[[SlotView alloc] init];
         item.slot_id=i;
         item.rootDict = rootSet;
+        item.selected = YES;
+        item.delegate = self;
         
         [item.view setFrame:CGRectMake(x, y, item.view.frame.size.width, item.view.frame.size.height)];
         //item.delegate=self;
         [[[_tabView tabViewItemAtIndex:0] view] addSubview:item.view];
         //[item._selectedBtn setTitle:[NSString stringWithFormat:@"Slot-%d",i+1]];
         [item initView];
-        x+=190;
-        if (i == 1) {
+        
+        if (slotCount%2 == 0) {
             x=5;
-            y=150;
+            y = y - 80;
+        }else{
+            x+=190;
         }
+ 
         [_slotsArr addObject:item];
     }
     NSLog(@"_slotsArr:%@",_slotsArr);
+    //[self.window setBackgroundColor:NSDebug6Color];
+    [self sendMsg2AllSlotView:@"LOCK:1"];
 }
 
 -(void)handlePopBtn:(NSPopUpButton *)popBtn{
     NSLog(@"popBtn index:%ld",(long)popBtn.indexOfSelectedItem);
     NSLog(@"popBtn item:%@",popBtn.selectedItem.title);
 }
-
+-(NSString *)scanIPs{
+    /*
+    NSString *strNSString;
+    const char *pConstChar;
+    strNSString = [[NSString alloc] initWithUTF8String:pConstChar];
+    pConstChar = [strNSString UTF8String];
+     */
+    const char *pConstChar="ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d 'addr:'";
+    //pConstChar = [cmdStr UTF8String];
+    FILE *fp = NULL;
+    char buf[10240] = {0};
+    fp = popen(pConstChar,"r");
+    if(fp == NULL){
+        return @"";
+    }
+    fread(buf, 10240, 1, fp);
+    printf("%s\n",buf);
+    pclose(fp);
+    NSString * string = [NSString stringWithFormat:@"%s", buf];
+    NSLog(@"popen output:%@",string);
+    return string;
+}
 -(void)handleModeBtn:(NSPopUpButton *)popBtn{
     if ([popBtn indexOfSelectedItem] == 0) {
         _GRR_MODE = false;
@@ -202,7 +243,7 @@
     });
 }
 -(id)init{
-    _SLOT_COUNT = 4;
+    
     _logString=@"";
 
     _printQueue=dispatch_queue_create("com.printLog.queue", DISPATCH_QUEUE_SERIAL);
@@ -217,6 +258,7 @@
     filePath=[rawfilePath stringByAppendingPathComponent:_scriptName];
     _rootSet=[[NSDictionary alloc] initWithContentsOfFile:filePath];
     _testSet=[_rootSet objectForKey:@"cfg"];
+    _SLOT_COUNT = [[_testSet objectForKey:@"Slots"] intValue];
     _swName=[_testSet objectForKey:@"SWname"];
     _swVersion=[_testSet objectForKey:@"SWversion"];
     _passCount=[[_testSet objectForKey:@"pass"] longLongValue];
@@ -368,6 +410,8 @@
     }else{
         _isLock=YES;
         [_lockBtn setImage:[NSImage imageNamed:@"lock_535.png"]];
+        [self.window setBackgroundColor:NSNormalColor];
+        [self sendMsg2AllSlotView:@"LOCK:1"];
     }
 }
 -(void)send2TT_PassWord:(BOOL )message{
@@ -377,7 +421,9 @@
     }
     _isLock=NO;
     [_lockBtn setImage:[NSImage imageNamed:@"unlock_535.png"]];
-    [_tabView selectTabViewItemAtIndex:2];
+    //[_tabView selectTabViewItemAtIndex:2];
+    [self.window setBackgroundColor:NSDebug6Color];
+    [self sendMsg2AllSlotView:@"LOCK:0"];
 }
 -(void)callPassWordVC{
     //init myPassWord ViewController
@@ -713,12 +759,17 @@
     int finish_count=0;
     for (int i=0;i<_SLOT_COUNT;i++) {
         SlotView *slot = _slotsArr[i];
-        [self performSelectorOnMainThread:@selector(updateSlotStatus:) withObject:slot waitUntilDone:YES];
-        if ([slot.status isEqualToString:@"PASS"] || [slot.status isEqualToString:@"FAIL"] ||
-            [slot.status isEqualToString:@"ERROR"]) {
+        if (YES == slot.selected) {
+            [self performSelectorOnMainThread:@selector(updateSlotStatus:) withObject:slot waitUntilDone:YES];
+            if ([slot.status isEqualToString:@"PASS"] || [slot.status isEqualToString:@"FAIL"] ||
+                [slot.status isEqualToString:@"ERROR"]) {
+                finish_count += 1;
+            }
+        }else{
             finish_count += 1;
+            slot.status=@"NA";
         }
-        [NSThread sleepForTimeInterval:0.2];
+        //[NSThread sleepForTimeInterval:0.1];
         _resultsArr[i] = slot.status;
     }
 
@@ -731,7 +782,7 @@
         }
         finish_count = _SLOT_COUNT;
     }
-    NSLog(@"_resultArr:%@",_resultsArr);
+    NSLog(@"==>>[_resultArr]:%@",_resultsArr);
     //[self performSelectorOnMainThread:@selector(printStatus) withObject:nil waitUntilDone:YES];
     
     if (finish_count == _SLOT_COUNT) {
@@ -909,6 +960,20 @@
         }else{
             //SN:DLCXXXXXXXXXXXXXX
             if([recStr hasPrefix:[NSString stringWithFormat:@"SN:%@",_snPreFix]]){
+                //check all slot are not selected
+                int selectedCount = 0;
+                for (SlotView *view in self.slotsArr) {
+                    if (YES == view.selected) {
+                        selectedCount +=1;
+                    }
+                    NSLog(@"slot view:%d selected:%hhd",view.slot_id,view.selected);
+                }
+                if (0 == selectedCount) {
+                    [self performSelectorOnMainThread:@selector(printAlarmWindow:) withObject:@"Any slots selected!" waitUntilDone:NO];
+                    [self feedbackNG];
+                    return;
+                }
+                //------------------------trigger testing-----------------------//
                 self._test_flag=0x01;
                 self._WatchCount=0;
                 self._is_testing=YES;
@@ -917,6 +982,9 @@
                 _start_time=[NSDate date];
                 _snString=@"";
                 _logString=@"";
+                dispatch_async(_printQueue, ^{
+                    [self printLogTask:[NSString stringWithFormat:@"[RX]:%@",recStr]];
+                });
                 [NSThread detachNewThreadSelector:@selector(operationFunc:) toTarget:self withObject:recStr];
             }else{
                 msg=[NSString stringWithFormat:@"Bad request:%@",recStr];
@@ -957,6 +1025,17 @@
         msg=@"[TX]:UNKNOWN result:TRUE";
     }else{
         msg=@"[TX]:UNKNOWN result:FALSE";
+    }
+    dispatch_async(_printQueue, ^{
+        [self printLogTask:msg];
+    });
+}
+-(void)feedbackNG{
+    NSString *msg;
+    if([_configView justSendCmd:@"NG\r\n" withName:@"AUTO"]){
+        msg=@"[TX]:NG result:TRUE";
+    }else{
+        msg=@"[TX]:NG result:FALSE";
     }
     dispatch_async(_printQueue, ^{
         [self printLogTask:msg];
@@ -1259,4 +1338,37 @@
     NSLog(@"lalala...");
 }
 
+#pragma mark ---Msg from SlotView
+- (void)msgFromSlotView:(nonnull NSString *)msg {
+    NSLog(@"msg from SlotView:%@",msg);
+    @synchronized (self) {
+        if ([msg hasPrefix:@"SELECTED:"]) {
+            NSArray *msgArr=[msg componentsSeparatedByString:@":"];
+            int slot_id=[msgArr[1] intValue];
+            BOOL selectVal=[msgArr[2] boolValue];
+            SlotView *slotview=self.slotsArr[slot_id];
+            slotview.selected =selectVal;
+            self.slotsArr[slot_id] = slotview;
+            int selectedCount = 0;
+            for (SlotView *view in self.slotsArr) {
+                if (YES == view.selected) {
+                    selectedCount +=1;
+                }
+                NSLog(@"slot view:%d selected:%hhd",view.slot_id,view.selected);
+            }
+            if (0 == selectedCount) {
+                [self performSelectorOnMainThread:@selector(printAlarmWindow:) withObject:@"Any slots selected!" waitUntilDone:NO];
+            }
+        }
+    }
+}
+#pragma mark ---Send Message To SlotView
+-(void)sendMsg2AllSlotView:(NSString *)msg{
+    for (SlotView *slotview in self.slotsArr) {
+        [slotview sendMsg2SlotView:msg];
+    }
+}
+-(void)sendMsg2ActiveSlotView:(NSString *)msg{
+    
+}
 @end

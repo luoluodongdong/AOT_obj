@@ -30,9 +30,6 @@
 		1C849BEB221BF2C90048A9C5 /* libopencv_imgproc.3.4.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C849BE6221BF2C90048A9C5 /* libopencv_imgproc.3.4.1.dylib */; };
 		1CC4B6032262223400C47E25 /* ArdUpload in Resources */ = {isa = PBXBuildFile; fileRef = 1CC4B6022262223400C47E25 /* ArdUpload */; };
 		1CC4B6052262283000C47E25 /* broom_brush_clea.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CC4B6042262283000C47E25 /* broom_brush_clea.png */; };
-		9D2CF438234ED5AF008C1E90 /* myVisaPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2CF421234ED5AF008C1E90 /* myVisaPanel.m */; };
-		9D2CF439234ED5AF008C1E90 /* myVisaPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2CF422234ED5AF008C1E90 /* myVisaPanel.xib */; };
-		9D2CF43A234ED5AF008C1E90 /* VISA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2CF425234ED5AF008C1E90 /* VISA.framework */; };
 		9D2CF43B234ED5AF008C1E90 /* ConfigView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2CF427234ED5AF008C1E90 /* ConfigView.xib */; };
 		9D2CF43C234ED5AF008C1E90 /* ConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2CF428234ED5AF008C1E90 /* ConfigView.m */; };
 		9D2CF43F234ED5AF008C1E90 /* mySocketPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2CF42E234ED5AF008C1E90 /* mySocketPanel.xib */; };
@@ -49,6 +46,7 @@
 		9D2CF45523501C81008C1E90 /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D2CF45423501C81008C1E90 /* background1.png */; };
 		9D2CF45923502149008C1E90 /* SlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2CF45823502149008C1E90 /* SlotView.m */; };
 		9D2CF45B2350215E008C1E90 /* SlotView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2CF45A2350215E008C1E90 /* SlotView.xib */; };
+		9D31896923A4AE5D007EE8A5 /* ShowIP in Resources */ = {isa = PBXBuildFile; fileRef = 9D31896823A4AE5D007EE8A5 /* ShowIP */; };
 		9D35223E235446AD00165A43 /* mySerialPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D352230235446AD00165A43 /* mySerialPanel.m */; };
 		9D35223F235446AD00165A43 /* ORSSerialPacketDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D352233235446AD00165A43 /* ORSSerialPacketDescriptor.m */; };
 		9D352240235446AD00165A43 /* ORSSerialBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D352235235446AD00165A43 /* ORSSerialBuffer.m */; };
@@ -90,11 +88,6 @@
 		1C849BE6221BF2C90048A9C5 /* libopencv_imgproc.3.4.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.3.4.1.dylib; path = opencv34lib/libopencv_imgproc.3.4.1.dylib; sourceTree = "<group>"; };
 		1CC4B6022262223400C47E25 /* ArdUpload */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ArdUpload; sourceTree = "<group>"; };
 		1CC4B6042262283000C47E25 /* broom_brush_clea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = broom_brush_clea.png; sourceTree = "<group>"; };
-		9D2CF421234ED5AF008C1E90 /* myVisaPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myVisaPanel.m; sourceTree = "<group>"; };
-		9D2CF422234ED5AF008C1E90 /* myVisaPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myVisaPanel.xib; sourceTree = "<group>"; };
-		9D2CF423234ED5AF008C1E90 /* myVisaPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myVisaPanel.h; sourceTree = "<group>"; };
-		9D2CF424234ED5AF008C1E90 /* NIVISAHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIVISAHelp.h; sourceTree = "<group>"; };
-		9D2CF425234ED5AF008C1E90 /* VISA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VISA.framework; sourceTree = "<group>"; };
 		9D2CF426234ED5AF008C1E90 /* ConfigView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigView.h; sourceTree = "<group>"; };
 		9D2CF427234ED5AF008C1E90 /* ConfigView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigView.xib; sourceTree = "<group>"; };
 		9D2CF428234ED5AF008C1E90 /* ConfigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigView.m; sourceTree = "<group>"; };
@@ -548,6 +541,7 @@
 		9D2CF6472351638B008C1E90 /* core.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = core.hpp; sourceTree = "<group>"; };
 		9D2CF6482351638B008C1E90 /* bgsegm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bgsegm.hpp; sourceTree = "<group>"; };
 		9D2CF6492351638B008C1E90 /* aruco.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = aruco.hpp; sourceTree = "<group>"; };
+		9D31896823A4AE5D007EE8A5 /* ShowIP */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ShowIP; sourceTree = "<group>"; };
 		9D352230235446AD00165A43 /* mySerialPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mySerialPanel.m; sourceTree = "<group>"; };
 		9D352231235446AD00165A43 /* mySerialPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mySerialPanel.h; sourceTree = "<group>"; };
 		9D352233235446AD00165A43 /* ORSSerialPacketDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialPacketDescriptor.m; sourceTree = "<group>"; };
@@ -574,7 +568,6 @@
 				1C849BE8221BF2C90048A9C5 /* libopencv_imgcodecs.3.4.1.dylib in Frameworks */,
 				1C849BE1221BF2BC0048A9C5 /* libstdc++.tbd in Frameworks */,
 				1C849BEB221BF2C90048A9C5 /* libopencv_imgproc.3.4.1.dylib in Frameworks */,
-				9D2CF43A234ED5AF008C1E90 /* VISA.framework in Frameworks */,
 				1C06F0F921F8178500B70121 /* ApplicationServices.framework in Frameworks */,
 				1C849BE9221BF2C90048A9C5 /* libopencv_videoio.3.4.1.dylib in Frameworks */,
 			);
@@ -586,6 +579,7 @@
 		1C06F0C521F60B3B00B70121 = {
 			isa = PBXGroup;
 			children = (
+				9D31896823A4AE5D007EE8A5 /* ShowIP */,
 				9D2CF46023516389008C1E90 /* opencv2 */,
 				9D2CF456235020F7008C1E90 /* mySlotView */,
 				9D2CF449234F434D008C1E90 /* CSVParser */,
@@ -688,25 +682,12 @@
 			children = (
 				9D35222F235446AD00165A43 /* serial */,
 				9D2CF444234EFD21008C1E90 /* dbPlist */,
-				9D2CF420234ED5AF008C1E90 /* NiVisa */,
 				9D2CF426234ED5AF008C1E90 /* ConfigView.h */,
 				9D2CF427234ED5AF008C1E90 /* ConfigView.xib */,
 				9D2CF428234ED5AF008C1E90 /* ConfigView.m */,
 				9D2CF42C234ED5AF008C1E90 /* socket */,
 			);
 			path = myConfigView;
-			sourceTree = "<group>";
-		};
-		9D2CF420234ED5AF008C1E90 /* NiVisa */ = {
-			isa = PBXGroup;
-			children = (
-				9D2CF421234ED5AF008C1E90 /* myVisaPanel.m */,
-				9D2CF422234ED5AF008C1E90 /* myVisaPanel.xib */,
-				9D2CF423234ED5AF008C1E90 /* myVisaPanel.h */,
-				9D2CF424234ED5AF008C1E90 /* NIVISAHelp.h */,
-				9D2CF425234ED5AF008C1E90 /* VISA.framework */,
-			);
-			path = NiVisa;
 			sourceTree = "<group>";
 		};
 		9D2CF42C234ED5AF008C1E90 /* socket */ = {
@@ -1777,6 +1758,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D31896923A4AE5D007EE8A5 /* ShowIP in Resources */,
 				9D2CF442234ED5AF008C1E90 /* README.markdown in Resources */,
 				9D2CF448234EFD21008C1E90 /* positions.plist in Resources */,
 				9D609A56228E7376009594FC /* opencv34lib in Resources */,
@@ -1790,7 +1772,6 @@
 				9D2CF447234EFD21008C1E90 /* samples.plist in Resources */,
 				1C06F0D521F60B3E00B70121 /* Assets.xcassets in Resources */,
 				1C06F10E21FA95BA00B70121 /* lock_535.png in Resources */,
-				9D2CF439234ED5AF008C1E90 /* myVisaPanel.xib in Resources */,
 				1C06F10221F85E5B00B70121 /* setting_128px_262.png in Resources */,
 				9D2CF43F234ED5AF008C1E90 /* mySocketPanel.xib in Resources */,
 				9D2CF451234F472E008C1E90 /* TestPlan.csv in Resources */,
@@ -1826,7 +1807,6 @@
 				9D35223E235446AD00165A43 /* mySerialPanel.m in Sources */,
 				9D352240235446AD00165A43 /* ORSSerialBuffer.m in Sources */,
 				1C06F0D321F60B3B00B70121 /* AppDelegate.m in Sources */,
-				9D2CF438234ED5AF008C1E90 /* myVisaPanel.m in Sources */,
 				1C849BDD221BF19C0048A9C5 /* colorPlug.mm in Sources */,
 				9D352243235446AD00165A43 /* ORSSerialPort.m in Sources */,
 			);
